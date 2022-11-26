@@ -1,0 +1,14 @@
+services:
+    app:
+       build: ./node
+       container_name: api_catalogo
+       volumes:
+           - ./../:/app
+       depends_on:
+         - yarn
+         
+    yarn:
+      build: ./node
+      volumes:
+        - ./../:/app
+      entrypoint: yarn

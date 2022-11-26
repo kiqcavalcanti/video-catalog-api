@@ -1,0 +1,28 @@
+{
+  "name": "admin-video-catalog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "./src/@core",
+    "./src/nestjs"
+  ],
+  "private": true,
+  "scripts": {
+    "prestart:dev": "npm run build -w @core/microvideos",
+    "start:dev": "npm run build:w -w @core/microvideos & npm run start:dev -w nestjs",
+    "test": "jest",
+    "test:cov": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiqcavalcanti/api-video-catalog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiqcavalcanti/api-video-catalog/issues"
+  },
+  "homepage": "https://github.com/kiqcavalcanti/api-video-catalog#readme"
+}
