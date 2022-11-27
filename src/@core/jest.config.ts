@@ -4,6 +4,10 @@
  */
 
 export default {
+  displayName: {
+    name: '@core',
+    color: 'blue'
+  },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -13,17 +17,17 @@ export default {
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/tmp/jest_rs",
 
-  // Automatically clear mock calls, instances, contexts and results before every test
+  // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
+  // collectCoverage: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: '../coverage',
+  coverageDirectory: '../__coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -31,29 +35,33 @@ export default {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: 'v8',
+  coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
+  //coverageReporters: [
+  //"json",
+  //"html"
   //   "json",
   //   "text",
   //   "lcov",
   //   "clover"
-  // ],
+  //],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    global: {
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
 
   // Make calling deprecated APIs throw helpful error messages
   // errorOnDeprecated: false,
-
-  // The default configuration for fake timers
-  // fakeTimers: {
-  //   "enableGlobally": false
-  // },
 
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
@@ -78,8 +86,6 @@ export default {
   // An array of file extensions your modules use
   // moduleFileExtensions: [
   //   "js",
-  //   "mjs",
-  //   "cjs",
   //   "jsx",
   //   "ts",
   //   "tsx",
@@ -121,7 +127,7 @@ export default {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: 'src',
+  rootDir: "src",
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -135,7 +141,10 @@ export default {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  // setupFilesAfterEnv: [
+  //   "./@seedwork/domain/tests/validations.ts",
+  //   "./@seedwork/domain/tests/jest.ts",
+  // ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -164,7 +173,7 @@ export default {
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
-  testRegex: '.*\\..*spec\\.ts$',
+  testRegex: ".*\\..*spec\\.ts$",
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
@@ -172,9 +181,15 @@ export default {
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",
 
+  // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
+  // testURL: "http://localhost",
+
+  // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
+  // timers: "real",
+
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.ts?$': ['@swc/jest'],
+    "^.+\\.ts?$": ["@swc/jest"],
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

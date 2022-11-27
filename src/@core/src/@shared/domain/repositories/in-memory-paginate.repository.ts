@@ -1,9 +1,9 @@
 import { InMemoryRepository } from './in-memory.repository';
-import { Entity } from '../entities/entity';
+import { Entity } from '../entities';
 import { IPaginateRepository } from './paginate.repository.interface';
-import { PaginateInput } from '../value-objects/paginate-input.vo';
-import { PaginateOutput } from '../value-objects/paginate-output.vo';
-import { OrderBy } from '../value-objects/paginate.types';
+import { PaginateInput } from '../value-objects';
+import { PaginateOutput } from '../value-objects';
+import { OrderBy } from '../value-objects';
 
 export abstract class InMemoryPaginateRepository<
     E extends Entity,
@@ -18,6 +18,7 @@ export abstract class InMemoryPaginateRepository<
   async paginate(
     paginateInput: PaginateInput<Filter>,
   ): Promise<PaginateOutput<E, Filter>> {
+
     const collectionFiltered = await this.applyFilters(
       this.collection,
       paginateInput.filter,

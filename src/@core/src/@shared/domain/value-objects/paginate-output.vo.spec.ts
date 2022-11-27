@@ -1,4 +1,4 @@
-import { Entity } from '../entities/entity';
+import { Entity } from '../entities';
 import { PaginateOutput } from './paginate-output.vo';
 
 describe('Paginate Response Value Object Unit Tests', () => {

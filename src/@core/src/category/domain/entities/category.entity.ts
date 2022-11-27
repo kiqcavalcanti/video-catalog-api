@@ -1,16 +1,16 @@
-import { UuidValueObject } from '../../../@shared/domain/value-objects/uuid.vo';
-import { Entity } from '../../../@shared/domain/entities/entity';
+import { UuidValueObject } from '../../../@shared/domain';
+import { Entity } from '../../../@shared/domain';
 
 export interface CategoryProps {
   name: string;
   description?: string | null;
-  isActive?: boolean | null;
+  isActive?: boolean;
   createdAt?: Date;
 }
 
 export interface UpdateCategoryProps {
-  name: string;
-  description: string | null;
+  name?: string;
+  description?: string | null;
 }
 
 export class Category extends Entity<CategoryProps> {
@@ -50,8 +50,14 @@ export class Category extends Entity<CategoryProps> {
   }
 
   public update(props: UpdateCategoryProps) {
-    this.name = props.name;
-    this.description = props.description;
+
+    if(typeof props.name !== 'undefined') {
+      this.name = props.name;
+    }
+
+    if(typeof props.description !== 'undefined') {
+      this.description = props.description;
+    }
   }
 
   public activate() {

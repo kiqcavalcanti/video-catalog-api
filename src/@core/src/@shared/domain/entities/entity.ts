@@ -1,4 +1,4 @@
-import { UuidValueObject } from '../value-objects/uuid.vo';
+import { UuidValueObject } from '../value-objects';
 
 export abstract class Entity<Props = any> {
   public readonly uuid: UuidValueObject;

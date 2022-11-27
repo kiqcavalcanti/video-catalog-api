@@ -48,7 +48,7 @@ describe('Category Entity Unit Test', () => {
 
   test('Constructor explicity passing null and undefined to not required props', () => {
     const category = new Category(
-      { name: 'serie', description: null, isActive: null },
+      { name: 'serie', description: null },
       null,
     );
 

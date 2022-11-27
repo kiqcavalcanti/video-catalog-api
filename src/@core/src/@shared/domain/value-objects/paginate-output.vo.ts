@@ -1,5 +1,5 @@
 import { ValueObject } from './value-object';
-import { Entity } from '../entities/entity';
+import { Entity } from '../entities';
 import { OrderBy } from './paginate.types';
 
 export interface PaginateOutputProps<E extends Entity, Filter = string> {
@@ -12,7 +12,7 @@ export interface PaginateOutputProps<E extends Entity, Filter = string> {
 }
 
 export class PaginateOutput<
-  E extends Entity,
+  E extends Entity = Entity,
   Filter = string,
 > extends ValueObject<PaginateOutputProps<E, Filter>> {
   readonly collection: E[];

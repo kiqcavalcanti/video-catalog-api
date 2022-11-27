@@ -1,9 +1,10 @@
 import { PaginateInput } from '../../../@shared/domain/value-objects/paginate-input.vo';
-import { CategoryInMemoryRepository } from './category-in-memory.repository';
 import { Category } from '../../domain/entities/category.entity';
+import { CategoryInMemoryRepository } from "./category-in-memory.repository";
 
 describe('Category In Memory Repository Unit Tests', () => {
   const repository = new CategoryInMemoryRepository();
+
 
   const entities = [
     new Category({ name: 'movies' }),
@@ -14,6 +15,7 @@ describe('Category In Memory Repository Unit Tests', () => {
   repository.collection = entities;
 
   it('should paginate and apply filter', async () => {
+
     let paginate = await repository.paginate(
       new PaginateInput({
         page: 1,
@@ -36,14 +38,15 @@ describe('Category In Memory Repository Unit Tests', () => {
       new PaginateInput({
         page: 1,
         perPage: 2,
-        filter: 'documentaries',
+        filter: 'doc',
       }),
+
     );
 
     expect(paginate.toJSON()).toStrictEqual({
       currentPage: 1,
       perPage: 2,
-      filter: 'documentaries',
+      filter: 'doc',
       orderBy: null,
       collection: [entities[2]],
       lastPage: 1,
