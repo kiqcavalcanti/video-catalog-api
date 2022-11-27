@@ -5,11 +5,10 @@ import { CategoryInMemoryRepository } from "./category-in-memory.repository";
 describe('Category In Memory Repository Unit Tests', () => {
   const repository = new CategoryInMemoryRepository();
 
-
   const entities = [
-    new Category({ name: 'movies' }),
-    new Category({ name: 'series' }),
-    new Category({ name: 'documentaries' }),
+    new Category({ name: 'movies', createdAt: new Date('2022-01-01')}),
+    new Category({ name: 'series', createdAt: new Date('2022-01-02')}),
+    new Category({ name: 'documentaries', createdAt: new Date('2022-01-03') }),
   ];
 
   repository.collection = entities;
@@ -60,12 +59,12 @@ describe('Category In Memory Repository Unit Tests', () => {
       }),
     );
 
-    expect(paginate.toJSON()).toStrictEqual({
+    expect(paginate.toJSON(true)).toStrictEqual({
       currentPage: 1,
       perPage: 3,
       filter: null,
       orderBy: null,
-      collection: entities,
+      collection: [entities[2], entities[1], entities[0]].map(e => e.toJSON()),
       lastPage: 1,
       total: 3,
     });
