@@ -1,6 +1,6 @@
-import { CategoryRepository } from '../../domain';
-import { Category } from '../../domain';
-import {InMemoryPaginateRepository } from '../../../@shared/domain';
+import { CategoryRepository } from '../../../domain';
+import { Category } from '../../../domain';
+import {InMemoryPaginateRepository } from '../../../../@shared/domain';
 
 export class CategoryInMemoryRepository
   extends InMemoryPaginateRepository<Category>

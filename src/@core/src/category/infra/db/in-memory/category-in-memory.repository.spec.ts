@@ -1,5 +1,5 @@
-import { PaginateInput } from '../../../@shared/domain/value-objects/paginate-input.vo';
-import { Category } from '../../domain/entities/category.entity';
+import { PaginateInput } from '../../../../@shared/domain/value-objects/paginate-input.vo';
+import { Category } from '../../../domain/entities/category.entity';
 import { CategoryInMemoryRepository } from "./category-in-memory.repository";
 
 describe('Category In Memory Repository Unit Tests', () => {

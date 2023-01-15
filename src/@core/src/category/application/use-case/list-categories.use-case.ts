@@ -10,7 +10,6 @@ export class ListCategoriesUseCase implements BaseUseCase<Input, Output> {
 
   async execute(input: Input): Promise<Output> {
     const paginateInput = new PaginateInput(input);
-
     const paginate = await this.categoryRepo.paginate(paginateInput);
 
     return this.toOutput(paginate);
